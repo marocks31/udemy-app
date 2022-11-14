@@ -25,10 +25,13 @@ class ArticlesController < ApplicationController
   # strong params create
   def create
     @article = Article.new(params.require(:article).permit(:title, :description))
-    @article.save
+    if @article.save
     #redirect to showpage
     # redirect_to article_path(@article)   shortcut below:
     redirect_to @article
+    else 
+      render 'new'
+    end
   end
 
   # PATCH/PUT /articles/1 or /articles/1.json
