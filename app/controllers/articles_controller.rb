@@ -26,6 +26,8 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(params.require(:article).permit(:title, :description))
     if @article.save
+      #flash helper
+      flash[:notice = "Article was created successfully."]
     #redirect to showpage
     # redirect_to article_path(@article)   shortcut below:
     redirect_to @article
