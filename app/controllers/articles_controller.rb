@@ -18,7 +18,9 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1/edit
+  # will find the article and display form
   def edit
+    @article = Article.find(params[:id])
   end
 
   # POST /articles or /articles.json
@@ -37,25 +39,23 @@ class ArticlesController < ApplicationController
   end
 
   # PATCH/PUT /articles/1 or /articles/1.json
+  # will impact the articles table with the edit information
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
-    end
+   @article = Article.find(params[:id])
+   if @article.update(params.require(:article).permit(:title, :description))
+    flash[:notice] = "Article was updated successfully"
+    redirect_to @article
+   else
+    render 'edit'
+   end
   end
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
-    @article.destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+        redirect_to articles_path
 
-    respond_to do |format|
-      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
