@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_article, only:[ :show, :edit, :update, :destroy ]
+  before_action :article_params, only:[ :create, :update ]
 
   # GET /articles or /articles.json
   def index
@@ -9,7 +10,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
-    @article = Article.find(params[:id])
   end
 
   # GET /articles/new
@@ -20,13 +20,12 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   # will find the article and display form
   def edit
-    @article = Article.find(params[:id])
   end
 
   # POST /articles or /articles.json
   # strong params create
   def create
-    @article = Article.new(params.require(:article).permit(:title, :description))
+    @article = Article.new(article_params)
     if @article.save
       #flash helper
       flash[:notice = "Article was created successfully."]
@@ -41,8 +40,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1 or /articles/1.json
   # will impact the articles table with the edit information
   def update
-   @article = Article.find(params[:id])
-   if @article.update(params.require(:article).permit(:title, :description))
+   if @article.update(article_params)
     flash[:notice] = "Article was updated successfully"
     redirect_to @article
    else
@@ -52,12 +50,12 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
-        @article = Article.find(params[:id])
         @article.destroy
         redirect_to articles_path
 
-    end
   end
+
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
