@@ -24,9 +24,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'jsbundling-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'bootstrap', '~> 5.0.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
