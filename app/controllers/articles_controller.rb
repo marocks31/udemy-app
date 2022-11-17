@@ -25,16 +25,16 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   # strong params create
   def create
-    @article = Article.new(article_params)
-    if @article.save
+      @article = Article.new(article_params)
+      if @article.save
       #flash helper
-      flash[:notice = "Article was created successfully."]
-    #redirect to showpage
-    # redirect_to article_path(@article)   shortcut below:
-    redirect_to @article
-    else 
+      flash[:notice] = "Article was created successfully."
+      #redirect to showpage
+      # redirect_to article_path(@article)   shortcut below:
+      redirect_to @article
+      else 
       render 'new'
-    end
+      end
   end
 
   # PATCH/PUT /articles/1 or /articles/1.json
@@ -50,12 +50,9 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
-        @article.destroy
-        redirect_to articles_path
-
+    @article.destroy
+    redirect_to articles_path
   end
-
-end
 
   private
     # Use callbacks to share common setup or constraints between actions.
