@@ -1,3 +1,6 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
 <% if @article.errors.any? %>
   <h2> The following errors prevented the article from being saved: </h2>
   <ul>
@@ -20,7 +23,10 @@
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-outline-light btn-lg"%>
   </p>
 
 <% end %>
+</div>
+</div>
+</div>
