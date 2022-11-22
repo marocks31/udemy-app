@@ -1,5 +1,22 @@
-<h1>Welcome to connect!</h1>
-<p>This is the home page.</p>
-<%= link_to 'Article listings', articles_path %> |
-<%= link_to 'About', about_path %>
+<div class="container" id="home-container">
+  <div class="jumbotron text-center text-white">
+    <h1 class="display-4">Blog</h1>
+    <p class="lead">This is the home page.</p>
+    <p>This is a Jumbotron from bootstrap</p>
+    <%= link_to 'Article listings', articles_path %> |
+    <%= link_to 'About', about_path %>
+  </div>
+</div>
 
+<style>
+#home-container {
+  margin-top: 25px;
+}
+.jumbotron {
+  background-image: url(assets/jumbo.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:  425px;
+}
+</style>
