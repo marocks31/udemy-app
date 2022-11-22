@@ -10,6 +10,9 @@
   </ul>
 <% end %>
 
+<div class="container" id="create-form">
+  <div class="row justify-content-md-center">
+    <div class="col-6 mt-4">
 <%# form the url to submit this request to %>
 <%= form_with(model: @article, local: true) do |f| %>
   <p>
@@ -30,3 +33,11 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<style>
+  #create-form {
+    background-color: #D8BFD8;
+  }
+</style>
