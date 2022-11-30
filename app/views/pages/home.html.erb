@@ -3,8 +3,9 @@
     <h1 class="display-4">Blog</h1>
     <p class="lead">This is the home page.</p>
     <p>This is a Jumbotron from bootstrap</p>
-    <%= link_to 'Article listings', articles_path %> |
-    <%= link_to 'About', about_path %>
+      <div id="signup-button">
+        <%= link_to 'Sign up!', signup_path, class: "btn btn-light btn-lg" %>
+      </div>
   </div>
 </div>
 
@@ -21,4 +22,8 @@
 }
 .jumbotron a:hover {
   color: #fff; }
+
+#signup-button {
+  padding-top: 200px;
+}
 </style>
