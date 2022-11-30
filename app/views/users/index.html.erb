@@ -1,0 +1,35 @@
+<h1 class="text-center mt-4">Users</h1>
+<div id="users-page">
+<div class="container" id="all-users">
+<% @users.each do |user| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+      <div class="card-header fst-italic">
+        <%= link_to user.username, user %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" id="user-link"><%= user.username %>'s articles:</h5>
+        <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
+        <%= link_to "View profile", user, class: "btn btn-outline-secondary"%>
+        <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-secondary"%>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Joined <%= time_ago_in_words(user.created_at) %> ago </small>
+      </div>
+    </div>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+<style>
+#articles-page {
+  background-color: #000;
+}
+#article-link a {
+  color: #000;
+}
+#article-link a:hover {
+  color: #9a9797; }
+</style>
