@@ -1,4 +1,37 @@
-<h1>About</h1> 
-<p>This is an about page<p>
-<%= link_to 'Article listings', articles_path %> |
-<%= link_to 'Home', root_path %>
+<div id="about-page">
+<div class="container" id="all-about">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+      <div class="card-header">
+        About this blog      
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" id="article-link">Objective</h5>
+        <p class="card-text"style="text-align: left">This blog features CRUD functions, multiple resources, an authentication system built from scratch, a front-end using Bootstrap 5, has one-to-many and many-to-many associations at DB layer, and was built using Rails 6. This is my first fullstack app utilizing a Rails front and back end!</p><br>
+        <p class="card-text" style="text-align: center">
+          Happy you're here.  
+        </p>
+      </div>
+      <div class="card-footer text-muted" id="footer-link">
+        <%= link_to "View all articles", articles_path%>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+<style>
+.card-header {
+  font-size: 40px;
+  font-weight: bold;
+}
+.card-text {
+  font-size:  15px;
+}
+#footer-link a {
+  color: #000;
+}
+#footer-link a:hover {
+  color: #9a9797; }
+</style>
