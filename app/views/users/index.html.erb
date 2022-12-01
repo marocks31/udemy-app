@@ -1,5 +1,8 @@
 <h1 class="text-center mt-4">Users</h1>
 <div id="users-page">
+<div class="apple_pagination">
+  <%= will_paginate @users, :container => false %>
+</div>
 <div class="container" id="all-users">
 <% @users.each do |user| %>
   <div class="row justify-content-md-center">
@@ -21,6 +24,9 @@
   </div>
   </div>
 <% end %>
+</div>
+<div class="apple_pagination">
+  <%= will_paginate @users, :container => false %>
 </div>
 </div>
 <style>
