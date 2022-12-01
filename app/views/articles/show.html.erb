@@ -1,12 +1,11 @@
-<div id="articles-page">
-<p id="notice"><%= notice %></p>
+<div id="show-page">
 <h1 class="text-center mt-4 text-white"><%= @article.title %></h1>
-<div class="container" id="all-articles">
+<div class="container">
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
     <div class="card text-center shadow mb-5 bg-white rounded">
       <div class="card-header fst-italic">
-        By: Molly
+        By: <%= @article.user.username %>
       </div>
       <div class="card-body">
         <div class="card-text" style="text-align: left;"><%= simple_format(@article.description) %></div>
@@ -23,10 +22,7 @@
 </div>
 </div>
 <style>
-#articles-page {
-  background-color: #D8BFD8;
-}
-#article-link a {
-  color: #D8BFD8;
+#show-page {
+  background-color: #000;
 }
 </style>
