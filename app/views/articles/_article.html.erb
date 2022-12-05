@@ -14,7 +14,7 @@
         <p class="card-text"><%= truncate(article.description, length: 100) %></p>
         <%= link_to "View", article_path(article), class: "btn btn-outline-secondary"%>
         <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-secondary"%>
-        <%= link_to "Delete", article_path(article), class: "btn btn-outline-danger"%>
+        <%= button_to "Delete", article_path(article), method: :delete, class: "btn btn-outline-danger"%>
       </div>
       <div class="card-footer text-muted">
         <small>Created <%= time_ago_in_words(article.created_at) %> ago, 
