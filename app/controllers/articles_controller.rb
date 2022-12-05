@@ -26,8 +26,7 @@ class ArticlesController < ApplicationController
   # strong params create
   def create
       @article = Article.new(article_params)
-      #hardcode user
-      @article.user = User.first
+      @article.user = current_user
       if @article.save
       #flash helper
       flash[:notice] = "Article was created successfully."
