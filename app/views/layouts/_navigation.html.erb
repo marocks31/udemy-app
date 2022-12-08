@@ -17,14 +17,12 @@
             </li>
           <% end %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               More
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li class="dropdown-item"><%= link_to 'About', about_path %></li>
               <li class="dropdown-item"><%= link_to 'Users', users_path %></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
           <% if logged_in? %>
@@ -32,13 +30,17 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Profile [<%= current_user.username %>]
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li class="dropdown-item"><%= link_to 'View your profile', user_path(current_user) %></li>
-              <li class="dropdown-item"><%= link_to 'Edit your profile', edit_user_path(current_user) %></li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'View profile', user_path(current_user), class: "dropdown-item" %>
+              <%= link_to 'Edit profile', edit_user_path(current_user), class: "dropdown-item" %>
+             <!--  <button_to 'Delete profile', user_path(current_user), class: "dropdown-item text-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } -->
+              <%= link_to "Delete Profile", user_path(current_user), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your account?" }, class: "dropdown-item text-danger" %>
+
+
             </ul>
           </li>
             <li class="nav-item">
-              <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
+              <%= link_to 'logout', logout_path, class: "nav-link", data: { turbo_method: :delete } %>
             </li>
             <% else %>
             <li class="nav-item">

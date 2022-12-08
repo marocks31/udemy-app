@@ -5,10 +5,14 @@ ruby '3.0.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.8'
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -17,6 +21,8 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 # adding test
 gem 'turbo-rails', '~> 1.0.0'
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -29,8 +35,8 @@ gem 'jsbundling-rails'
 gem 'bootstrap', '~> 5.0.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'jquery-rails'
-gem 'webpacker'
+# gem 'jquery-rails'
+# gem 'webpacker'
 gem 'will_paginate', '~> 3.3', '>= 3.3.1'
 
 group :development, :test do
