@@ -1,33 +1,33 @@
 <div id="articles-page">
-<div class="container" id="all-articles">
-<% @articles.each do |article| %>
-  <div class="row justify-content-md-center">
-    <div class="col-8 mt-4">
-    <div class="card text-center shadow mb-5 bg-white rounded">
-      <div class="card-header fst-italic">
-        <% if article.user %>
-          by <%= link_to article.user.username, user_path(article.user) %>
-        <% end %>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title" id="article-link"><%= link_to article.title, article_path(article) %></h5>
-        <p class="card-text"><%= truncate(article.description, length: 100) %></p>
-        <%= link_to "View", article_path(article), class: "btn btn-outline-secondary"%>
+  <div class="container" id="all-articles">
+    <% @articles.each do |article| %>
+      <div class="row justify-content-md-center">
+        <div class="col-8 mt-4">
+          <div class="card text-center shadow mb-5 bg-white rounded">
+            <div class="card-header fst-italic">
+              <% if article.user %>
+                by <%= link_to article.user.username, user_path(article.user) %>
+              <% end %>
+            </div>
+            <div class="card-body">
+            <h5 class="card-title" id="article-link"><%= link_to article.title, article_path(article) %></h5>
+            <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+            <%= link_to "View", article_path(article), class: "btn btn-outline-secondary"%>
 
-        <% if logged_in? && (article.user == current_user || current_user.admin?) %>
-        <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-secondary"%>
-        <%= button_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-outline-danger" %>
-        <% end %>
+            <% if logged_in? && (article.user == current_user || current_user.admin?) %>
+            <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-secondary"%>
+            <%= button_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-outline-danger" %>
+            <% end %>
+            </div>
+            <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(article.created_at) %> ago, 
+            edited <%= time_ago_in_words(article.updated_at) %> ago </small>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card-footer text-muted">
-        <small>Created <%= time_ago_in_words(article.created_at) %> ago, 
-        edited <%= time_ago_in_words(article.updated_at) %> ago </small>
-      </div>
-    </div>
+    <% end %>
   </div>
-  </div>
-<% end %>
-</div>
 </div>
 <style>
 #articles-page {

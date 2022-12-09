@@ -1,31 +1,27 @@
-<div id="show-page">
 <h1 class="text-center mt-4 text-white"><%= @article.title %></h1>
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
-    <div class="card text-center shadow mb-5 bg-white rounded">
-      <div class="card-header fst-italic">
-        By: <%= @article.user.username %>
-      </div>
-      <div class="card-body">
-        <div class="card-text" style="text-align: left;"><%= simple_format(@article.description) %></div>
-        <% if logged_in? && (@article.user == current_user || current_user.admin?)%>
-        <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-secondary"%>
-        <%= link_to "Delete", article_path(@article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-        <% end %>
-      </div>
-        <small>Created <%= time_ago_in_words(@article.created_at) %> ago, 
-        edited <%= time_ago_in_words(@article.updated_at) %> ago </small>
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header fst-italic">
+          By: <%= @article.user.username %>
+        </div>
+        <div class="card-body">
+        <div class="card-text" style="text-align: left;"><%= simple_format(@article.description) %>
+        </div>
+              <% if logged_in? && (@article.user == current_user || current_user.admin?)%>
+              <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-secondary"%>
+              <%= link_to "Delete", article_path(@article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+              <%= link_to 'Back', articles_path, class: "btn btn-outline-secondary" %>
+              <% end %>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(@article.created_at) %> ago, edited <%= time_ago_in_words(@article.updated_at) %> ago </small>
+        </div>
       </div>
     </div>
-      <%= link_to '[Back to all articles]', articles_path, class: "text-info text-center" %>
-      <div class="card-footer text-muted">
-  </div>
   </div>
 </div>
-</div>
+
 <style>
-#show-page {
-  background-color: #000;
-}
 </style>
