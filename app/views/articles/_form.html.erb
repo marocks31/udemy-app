@@ -16,6 +16,13 @@
             <%= f.text_area :description, rows:10, class: "form-control shadow rounded", placeholder: "Description of article" %>
           </div>
         </div>
+        <p class="text-light text-center">Make your category selection from the list below</p>
+        <div class="form-group row">
+          <%= f.label :category, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.collection_select(:category_ids, Category.all, :id, :name, class: "selectpicker shadow rounded") %>
+          </div>
+        </div>
 
         <div class="form-group row justify-content-center">
           <%= f.submit class: "btn btn-outline-light btn-lg", id: "submit-button"%>
