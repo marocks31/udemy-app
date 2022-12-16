@@ -5,6 +5,9 @@
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header fst-italic">
           By: <%= @article.user.username %>
+          <% if @article.categories.any? %>
+          <%= render @article.categories %> category
+          <% end %>
         </div>
         <div class="card-body">
         <div class="card-text" style="text-align: left;"><%= simple_format(@article.description) %>
