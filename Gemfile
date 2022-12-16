@@ -11,6 +11,7 @@ gem "sprockets-rails"
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+gem 'jquery-rails'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 # Use SCSS for stylesheets
@@ -39,6 +40,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'webpacker'
 gem 'will_paginate', '~> 3.3', '>= 3.3.1'
 gem 'rexml', require: false
+gem 'webpacker', '~> 4.0'
 
 
 group :development, :test do
